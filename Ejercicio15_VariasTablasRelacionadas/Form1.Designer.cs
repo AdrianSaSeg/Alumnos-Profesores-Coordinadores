@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dg_alumnos = new System.Windows.Forms.DataGridView();
+            this.dg_profesores = new System.Windows.Forms.DataGridView();
             this.Nombre_Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Teléfono_Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email_Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Curso_Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dg_profesores = new System.Windows.Forms.DataGridView();
+            this.dg_alumnos = new System.Windows.Forms.DataGridView();
             this.Nombre_Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido_Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Teléfono_Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,25 +56,32 @@
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coordinadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
+            this.dg_cursos = new System.Windows.Forms.DataGridView();
+            this.Nombre_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_cursos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dg_alumnos
+            // dg_profesores
             // 
-            this.dg_alumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_alumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dg_profesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_profesores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_Profesor,
             this.Apellido_Profesor,
             this.Teléfono_Profesor,
             this.Email_Profesor,
             this.Curso_Profesor});
-            this.dg_alumnos.Location = new System.Drawing.Point(8, 50);
-            this.dg_alumnos.Name = "dg_alumnos";
-            this.dg_alumnos.Size = new System.Drawing.Size(545, 150);
-            this.dg_alumnos.TabIndex = 0;
+            this.dg_profesores.Location = new System.Drawing.Point(8, 62);
+            this.dg_profesores.Name = "dg_profesores";
+            this.dg_profesores.Size = new System.Drawing.Size(545, 150);
+            this.dg_profesores.TabIndex = 0;
             // 
             // Nombre_Profesor
             // 
@@ -101,19 +108,19 @@
             this.Curso_Profesor.HeaderText = "Curso";
             this.Curso_Profesor.Name = "Curso_Profesor";
             // 
-            // dg_profesores
+            // dg_alumnos
             // 
-            this.dg_profesores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_profesores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dg_alumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_alumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_Alumno,
             this.Apellido_Alumno,
             this.Teléfono_Alumno,
             this.Email_Alumno,
             this.Curso_Alumno});
-            this.dg_profesores.Location = new System.Drawing.Point(8, 248);
-            this.dg_profesores.Name = "dg_profesores";
-            this.dg_profesores.Size = new System.Drawing.Size(545, 150);
-            this.dg_profesores.TabIndex = 1;
+            this.dg_alumnos.Location = new System.Drawing.Point(8, 260);
+            this.dg_alumnos.Name = "dg_alumnos";
+            this.dg_alumnos.Size = new System.Drawing.Size(545, 150);
+            this.dg_alumnos.TabIndex = 1;
             // 
             // Nombre_Alumno
             // 
@@ -149,7 +156,7 @@
             this.Teléfono_Coord,
             this.Email_Coord,
             this.Curso_Coord});
-            this.dg_coordinadores.Location = new System.Drawing.Point(8, 440);
+            this.dg_coordinadores.Location = new System.Drawing.Point(8, 452);
             this.dg_coordinadores.Name = "dg_coordinadores";
             this.dg_coordinadores.Size = new System.Drawing.Size(545, 150);
             this.dg_coordinadores.TabIndex = 2;
@@ -182,27 +189,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.Size = new System.Drawing.Size(222, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Listado de Profesores";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 232);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(201, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Listado de Alumnos";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 424);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 13);
+            this.label3.Size = new System.Drawing.Size(259, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Listado de Coordinadores";
             // 
@@ -237,7 +247,8 @@
             this.añadirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.profesoresToolStripMenuItem,
             this.alumnosToolStripMenuItem,
-            this.coordinadoresToolStripMenuItem});
+            this.coordinadoresToolStripMenuItem,
+            this.cursoToolStripMenuItem});
             this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
             this.añadirToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.añadirToolStripMenuItem.Text = "Añadir";
@@ -263,26 +274,73 @@
             this.coordinadoresToolStripMenuItem.Text = "Coordinadores";
             this.coordinadoresToolStripMenuItem.Click += new System.EventHandler(this.coordinadoresToolStripMenuItem_Click);
             // 
+            // dg_cursos
+            // 
+            this.dg_cursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_cursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre_Curso,
+            this.Fecha_Curso,
+            this.Categoria_Curso});
+            this.dg_cursos.Location = new System.Drawing.Point(8, 657);
+            this.dg_cursos.Name = "dg_cursos";
+            this.dg_cursos.Size = new System.Drawing.Size(545, 150);
+            this.dg_cursos.TabIndex = 7;
+            // 
+            // Nombre_Curso
+            // 
+            this.Nombre_Curso.HeaderText = "Nombre";
+            this.Nombre_Curso.Name = "Nombre_Curso";
+            // 
+            // Fecha_Curso
+            // 
+            this.Fecha_Curso.HeaderText = "Fecha";
+            this.Fecha_Curso.Name = "Fecha_Curso";
+            // 
+            // Categoria_Curso
+            // 
+            this.Categoria_Curso.HeaderText = "Categoría";
+            this.Categoria_Curso.Name = "Categoria_Curso";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(23, 629);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Listado de Cursos";
+            // 
+            // cursoToolStripMenuItem
+            // 
+            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
+            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cursoToolStripMenuItem.Text = "Curso";
+            this.cursoToolStripMenuItem.Click += new System.EventHandler(this.cursoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 602);
+            this.ClientSize = new System.Drawing.Size(664, 810);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dg_cursos);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dg_coordinadores);
-            this.Controls.Add(this.dg_profesores);
             this.Controls.Add(this.dg_alumnos);
+            this.Controls.Add(this.dg_profesores);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Listado Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_cursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,8 +348,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dg_alumnos;
         private System.Windows.Forms.DataGridView dg_profesores;
+        private System.Windows.Forms.DataGridView dg_alumnos;
         private System.Windows.Forms.DataGridView dg_coordinadores;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -318,6 +376,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Curso_Coord;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dg_cursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria_Curso;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
     }
 }
 

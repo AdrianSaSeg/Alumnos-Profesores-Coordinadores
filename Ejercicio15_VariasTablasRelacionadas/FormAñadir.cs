@@ -12,19 +12,38 @@ namespace Ejercicio15_VariasTablasRelacionadas
 {
     public partial class FormAñadir : Form
     {
-        public DataGridView _DatosUsuarios { get; set; }
-        
+        public DataGridView _DatosEntidad { get; set; }
+        public string _Texto { get; set; }
+
         public FormAñadir()
         {
             InitializeComponent();
         }
 
-        public FormAñadir(DataGridView datosUsuarios)
+        public FormAñadir(DataGridView datosEntidad, string texto)
         {
             InitializeComponent();
-            _DatosUsuarios = datosUsuarios; 
+            _DatosEntidad = datosEntidad;
+            _Texto = texto;
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _DatosEntidad.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem);
+            }
+            catch (FormatException ex)
+            {
+
+                MessageBox.Show(ex.Message + " Introduce un número en la casilla teléfono");
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
