@@ -24,26 +24,44 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAñadir formAñadirProfesor = new FormAñadir(dg_profesores, "Nuevo Profesor");
-            formAñadirProfesor.ShowDialog();
+            FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, "Nuevo Profesor");
+            formInsertarProfesor.ShowDialog();
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAñadir formAñadirAlumno = new FormAñadir(dg_alumnos, "Nuevo Alumno");
-            formAñadirAlumno.ShowDialog();
+            FormInsertar formInsertarAlumno = new FormInsertar(dg_alumnos, "Nuevo Alumno");
+            formInsertarAlumno.ShowDialog();
         }
 
         private void coordinadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAñadir formAñadirCoordinador = new FormAñadir(dg_coordinadores, "Nuevo Coordinador");
-            formAñadirCoordinador.ShowDialog();
+            FormInsertar formInsertarCoordinador = new FormInsertar(dg_coordinadores, "Nuevo Coordinador");
+            formInsertarCoordinador.ShowDialog();
         }
 
         private void cursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAñadir formAñadirCurso = new FormAñadir(dg_cursos, "Nuevo Curso");
-            formAñadirCurso.ShowDialog();
+            FormInsertarCurso formInsertarCurso = new FormInsertarCurso(dg_cursos, "Nuevo Curso");
+            formInsertarCurso.ShowDialog();
+        }
+
+        private void dg_profesores_Click(object sender, EventArgs e)
+        {
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
+            formActualizarEliminar.ShowDialog();
+        }
+
+        private void dg_alumnos_Click(object sender, EventArgs e)
+        {
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_alumnos, "Actualizar/Eliminar Alumno");
+            formActualizarEliminar.ShowDialog();
+        }
+
+        private void dg_coordinadores_Click(object sender, EventArgs e)
+        {
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador");
+            formActualizarEliminar.ShowDialog();
         }
     }
 }

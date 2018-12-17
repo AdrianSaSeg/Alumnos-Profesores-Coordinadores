@@ -82,6 +82,7 @@
             this.dg_profesores.Name = "dg_profesores";
             this.dg_profesores.Size = new System.Drawing.Size(545, 150);
             this.dg_profesores.TabIndex = 0;
+            this.dg_profesores.Click += new System.EventHandler(this.dg_profesores_Click);
             // 
             // Nombre_Profesor
             // 
@@ -121,6 +122,7 @@
             this.dg_alumnos.Name = "dg_alumnos";
             this.dg_alumnos.Size = new System.Drawing.Size(545, 150);
             this.dg_alumnos.TabIndex = 1;
+            this.dg_alumnos.Click += new System.EventHandler(this.dg_alumnos_Click);
             // 
             // Nombre_Alumno
             // 
@@ -160,6 +162,7 @@
             this.dg_coordinadores.Name = "dg_coordinadores";
             this.dg_coordinadores.Size = new System.Drawing.Size(545, 150);
             this.dg_coordinadores.TabIndex = 2;
+            this.dg_coordinadores.Click += new System.EventHandler(this.dg_coordinadores_Click);
             // 
             // Nombre_Coord
             // 
@@ -334,7 +337,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Listado Usuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Academia";
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).EndInit();

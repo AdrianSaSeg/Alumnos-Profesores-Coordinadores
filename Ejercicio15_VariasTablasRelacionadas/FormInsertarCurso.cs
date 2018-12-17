@@ -10,35 +10,28 @@ using System.Windows.Forms;
 
 namespace Ejercicio15_VariasTablasRelacionadas
 {
-    public partial class FormAñadir : Form
+    public partial class FormInsertarCurso : Form
     {
-        public DataGridView _DatosEntidad { get; set; }
+        public DataGridView _DatosCurso { get; set; }
         public string _Texto { get; set; }
 
-        public FormAñadir()
+        public FormInsertarCurso()
         {
             InitializeComponent();
         }
 
-        public FormAñadir(DataGridView datosEntidad, string texto)
+        public FormInsertarCurso(DataGridView datosCurso, string texto)
         {
             InitializeComponent();
-            _DatosEntidad = datosEntidad;
+            _DatosCurso = datosCurso;
             _Texto = texto;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                _DatosEntidad.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem);
-            }
-            catch (FormatException ex)
-            {
-
-                MessageBox.Show(ex.Message + " Introduce un número en la casilla teléfono");
-            }
             
+            _DatosCurso.Rows.Add(textBox1.Text, dateTimePicker1.Value, textBox3.Text);
+                        
         }
 
         private void button2_Click(object sender, EventArgs e)
