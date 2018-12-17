@@ -56,12 +56,12 @@
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coordinadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dg_cursos = new System.Windows.Forms.DataGridView();
             this.Nombre_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria_Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).BeginInit();
@@ -82,7 +82,7 @@
             this.dg_profesores.Name = "dg_profesores";
             this.dg_profesores.Size = new System.Drawing.Size(545, 150);
             this.dg_profesores.TabIndex = 0;
-            this.dg_profesores.Click += new System.EventHandler(this.dg_profesores_Click);
+            this.dg_profesores.DoubleClick += new System.EventHandler(this.dg_profesores_DoubleClick);
             // 
             // Nombre_Profesor
             // 
@@ -122,7 +122,7 @@
             this.dg_alumnos.Name = "dg_alumnos";
             this.dg_alumnos.Size = new System.Drawing.Size(545, 150);
             this.dg_alumnos.TabIndex = 1;
-            this.dg_alumnos.Click += new System.EventHandler(this.dg_alumnos_Click);
+            this.dg_alumnos.DoubleClick += new System.EventHandler(this.dg_alumnos_DoubleClick);
             // 
             // Nombre_Alumno
             // 
@@ -162,7 +162,7 @@
             this.dg_coordinadores.Name = "dg_coordinadores";
             this.dg_coordinadores.Size = new System.Drawing.Size(545, 150);
             this.dg_coordinadores.TabIndex = 2;
-            this.dg_coordinadores.Click += new System.EventHandler(this.dg_coordinadores_Click);
+            this.dg_coordinadores.DoubleClick += new System.EventHandler(this.dg_coordinadores_DoubleClick);
             // 
             // Nombre_Coord
             // 
@@ -259,23 +259,30 @@
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.profesoresToolStripMenuItem.Text = "Profesores";
             this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
             // 
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
             // 
             // coordinadoresToolStripMenuItem
             // 
             this.coordinadoresToolStripMenuItem.Name = "coordinadoresToolStripMenuItem";
-            this.coordinadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.coordinadoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.coordinadoresToolStripMenuItem.Text = "Coordinadores";
             this.coordinadoresToolStripMenuItem.Click += new System.EventHandler(this.coordinadoresToolStripMenuItem_Click);
+            // 
+            // cursoToolStripMenuItem
+            // 
+            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
+            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cursoToolStripMenuItem.Text = "Curso";
+            this.cursoToolStripMenuItem.Click += new System.EventHandler(this.cursoToolStripMenuItem_Click);
             // 
             // dg_cursos
             // 
@@ -313,13 +320,6 @@
             this.label4.Size = new System.Drawing.Size(186, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Listado de Cursos";
-            // 
-            // cursoToolStripMenuItem
-            // 
-            this.cursoToolStripMenuItem.Name = "cursoToolStripMenuItem";
-            this.cursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cursoToolStripMenuItem.Text = "Curso";
-            this.cursoToolStripMenuItem.Click += new System.EventHandler(this.cursoToolStripMenuItem_Click);
             // 
             // Form1
             // 

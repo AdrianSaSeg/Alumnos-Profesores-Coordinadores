@@ -44,21 +44,21 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             FormInsertarCurso formInsertarCurso = new FormInsertarCurso(dg_cursos, "Nuevo Curso");
             formInsertarCurso.ShowDialog();
-        }
-
-        private void dg_profesores_Click(object sender, EventArgs e)
+        }       
+        
+        private void dg_profesores_DoubleClick(object sender, EventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
             formActualizarEliminar.ShowDialog();
         }
 
-        private void dg_alumnos_Click(object sender, EventArgs e)
+        private void dg_alumnos_DoubleClick(object sender, EventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_alumnos, "Actualizar/Eliminar Alumno");
             formActualizarEliminar.ShowDialog();
         }
 
-        private void dg_coordinadores_Click(object sender, EventArgs e)
+        private void dg_coordinadores_DoubleClick(object sender, EventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador");
             formActualizarEliminar.ShowDialog();
