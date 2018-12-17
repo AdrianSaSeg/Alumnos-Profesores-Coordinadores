@@ -63,5 +63,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador");
             formActualizarEliminar.ShowDialog();
         }
+
+        private void dg_cursos_DoubleClick(object sender, EventArgs e)
+        {
+            FormActualizarEliminarCurso formActualizarEliminarCurso = new FormActualizarEliminarCurso(dg_cursos, "Actualizar/Eliminar Curso");
+            formActualizarEliminarCurso.ShowDialog();
+        }
     }
 }

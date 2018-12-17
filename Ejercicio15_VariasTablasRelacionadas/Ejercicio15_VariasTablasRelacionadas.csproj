@@ -64,6 +64,12 @@
     <Compile Include="FormInsertar.Designer.cs">
       <DependentUpon>FormInsertar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormActualizarEliminarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormActualizarEliminarCurso.Designer.cs">
+      <DependentUpon>FormActualizarEliminarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInsertarCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInsertar.resx">
       <DependentUpon>FormInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormActualizarEliminarCurso.resx">
+      <DependentUpon>FormActualizarEliminarCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInsertarCurso.resx">
       <DependentUpon>FormInsertarCurso.cs</DependentUpon>

@@ -80,7 +80,7 @@
             this.Curso_Profesor});
             this.dg_profesores.Location = new System.Drawing.Point(8, 62);
             this.dg_profesores.Name = "dg_profesores";
-            this.dg_profesores.Size = new System.Drawing.Size(545, 150);
+            this.dg_profesores.Size = new System.Drawing.Size(732, 150);
             this.dg_profesores.TabIndex = 0;
             this.dg_profesores.DoubleClick += new System.EventHandler(this.dg_profesores_DoubleClick);
             // 
@@ -120,7 +120,7 @@
             this.Curso_Alumno});
             this.dg_alumnos.Location = new System.Drawing.Point(8, 260);
             this.dg_alumnos.Name = "dg_alumnos";
-            this.dg_alumnos.Size = new System.Drawing.Size(545, 150);
+            this.dg_alumnos.Size = new System.Drawing.Size(732, 150);
             this.dg_alumnos.TabIndex = 1;
             this.dg_alumnos.DoubleClick += new System.EventHandler(this.dg_alumnos_DoubleClick);
             // 
@@ -160,7 +160,7 @@
             this.Curso_Coord});
             this.dg_coordinadores.Location = new System.Drawing.Point(8, 452);
             this.dg_coordinadores.Name = "dg_coordinadores";
-            this.dg_coordinadores.Size = new System.Drawing.Size(545, 150);
+            this.dg_coordinadores.Size = new System.Drawing.Size(732, 150);
             this.dg_coordinadores.TabIndex = 2;
             this.dg_coordinadores.DoubleClick += new System.EventHandler(this.dg_coordinadores_DoubleClick);
             // 
@@ -226,7 +226,7 @@
             this.añadirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(664, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(969, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -293,8 +293,9 @@
             this.Categoria_Curso});
             this.dg_cursos.Location = new System.Drawing.Point(8, 657);
             this.dg_cursos.Name = "dg_cursos";
-            this.dg_cursos.Size = new System.Drawing.Size(545, 150);
+            this.dg_cursos.Size = new System.Drawing.Size(732, 150);
             this.dg_cursos.TabIndex = 7;
+            this.dg_cursos.DoubleClick += new System.EventHandler(this.dg_cursos_DoubleClick);
             // 
             // Nombre_Curso
             // 
@@ -325,7 +326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 810);
+            this.ClientSize = new System.Drawing.Size(969, 810);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dg_cursos);
             this.Controls.Add(this.label3);
