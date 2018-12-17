@@ -15,6 +15,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
         public DataGridView _DatosEntidad { get; set; }
         public string _Texto { get; set; }
         
+
         public FormActualizarEliminar()
         {
             InitializeComponent();
@@ -47,7 +48,16 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de eliminar los profesores seleccionados?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach(DataGridViewRow i in _DatosEntidad.SelectedRows)
+                {
+                    _DatosEntidad.Rows.Remove(i);
+                }
+
+            }           
         }
     }
 }
