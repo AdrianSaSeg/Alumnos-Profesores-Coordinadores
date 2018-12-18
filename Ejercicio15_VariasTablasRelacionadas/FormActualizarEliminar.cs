@@ -37,7 +37,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
             _DatosEntidad.Rows[i].Cells[0].Value = textBox1.Text;
             _DatosEntidad.Rows[i].Cells[1].Value = textBox2.Text;
             _DatosEntidad.Rows[i].Cells[2].Value = textBox3.Text;
-            _DatosEntidad.Rows[i].Cells[3].Value = comboBox1.SelectedItem;
+            _DatosEntidad.Rows[i].Cells[3].Value = textBox4.Text;
+            _DatosEntidad.Rows[i].Cells[4].Value = comboBox1.SelectedItem;
 
         }
 

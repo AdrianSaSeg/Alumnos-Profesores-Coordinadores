@@ -45,26 +45,31 @@ namespace Ejercicio15_VariasTablasRelacionadas
             FormInsertarCurso formInsertarCurso = new FormInsertarCurso(dg_cursos, "Nuevo Curso");
             formInsertarCurso.ShowDialog();
         }       
-        
-        private void dg_profesores_DoubleClick(object sender, EventArgs e)
+                             
+        private void profesoresToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dg_profesores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
             formActualizarEliminar.ShowDialog();
         }
 
-        private void dg_alumnos_DoubleClick(object sender, EventArgs e)
+        private void dg_alumnos_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_alumnos, "Actualizar/Eliminar Alumno");
             formActualizarEliminar.ShowDialog();
         }
 
-        private void dg_coordinadores_DoubleClick(object sender, EventArgs e)
+        private void dg_coordinadores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador");
             formActualizarEliminar.ShowDialog();
         }
 
-        private void dg_cursos_DoubleClick(object sender, EventArgs e)
+        private void dg_cursos_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminarCurso formActualizarEliminarCurso = new FormActualizarEliminarCurso(dg_cursos, "Actualizar/Eliminar Curso");
             formActualizarEliminarCurso.ShowDialog();
