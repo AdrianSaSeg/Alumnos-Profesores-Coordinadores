@@ -3,23 +3,66 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop;
 
 namespace Ejercicio15_VariasTablasRelacionadas
 {
     public partial class Form1 : Form
     {
+        string fichero;
+
         public Form1()
         {
             InitializeComponent();
+            
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void GuardarExcel (DataGridView dataGrid)
         {
-            Close();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel (*xls)|*.xls";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application aplicacion;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = aplicacion.Workbooks.Add();
+                hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+
+                //Recorremos el DataGridView rellenando la hoja de trabajo
+                for (int i = 0; i < dataGrid.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGrid.Columns.Count; j++)
+                    {
+                        hoja_trabajo.Cells[i + 1, j + 1] = dataGrid.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                libros_trabajo.SaveAs(saveFileDialog.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                aplicacion.Quit();
+            }
+        }
+
+        private void Pd_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int pos;
+            int líneas;
+            StringFormat sf = StringFormat.GenericTypographic;
+
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            e.Graphics.DrawString(fichero, Font, Brushes.Black, e.MarginBounds, sf);
+            e.Graphics.MeasureString(fichero, Font, new SizeF(e.MarginBounds.Width, e.MarginBounds.Height), sf, out pos, out líneas);
+
+            fichero = fichero.Substring(pos);
+            e.HasMorePages = fichero.Trim().Length > 0;
         }
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,11 +89,6 @@ namespace Ejercicio15_VariasTablasRelacionadas
             formInsertarCurso.ShowDialog();
         }       
                              
-        private void profesoresToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dg_profesores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
@@ -74,5 +112,35 @@ namespace Ejercicio15_VariasTablasRelacionadas
             FormActualizarEliminarCurso formActualizarEliminarCurso = new FormActualizarEliminarCurso(dg_cursos, "Actualizar/Eliminar Curso");
             formActualizarEliminarCurso.ShowDialog();
         }
+
+        private void profesoresGuardarExcel_Click(object sender, EventArgs e)
+        {
+            GuardarExcel(dg_profesores);
+        }
+
+        private void alumnosGuardarExcel_Click(object sender, EventArgs e)
+        {
+            GuardarExcel(dg_alumnos);
+        }
+      
+        private void coordinadoresGuardarExcel_Click(object sender, EventArgs e)
+        {
+            GuardarExcel(dg_coordinadores);
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fichero = File.ReadAllText(@"C:\Users\Adrian Sanchez\Desktop\profesores.xls", Encoding.Default);
+
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += Pd_PrintPage;
+            pd.Print();
+        }
+              
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    
     }
 }

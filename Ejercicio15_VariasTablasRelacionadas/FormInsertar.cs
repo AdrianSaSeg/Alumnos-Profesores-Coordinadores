@@ -31,7 +31,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             try
             {
-                _DatosEntidad.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem);
+                _DatosEntidad.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.Text);
             }
             catch (FormatException ex)
             {
