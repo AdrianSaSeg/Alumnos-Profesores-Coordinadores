@@ -141,6 +141,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             this.Close();
         }
-    
+
+        private void profesoresBuscar_Click(object sender, EventArgs e)
+        {
+            FormBuscar formBuscar = new FormBuscar(dg_profesores, "Buscar en registro de Profesores");
+            formBuscar.ShowDialog();
+        }
     }
 }
