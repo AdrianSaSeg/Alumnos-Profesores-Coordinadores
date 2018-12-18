@@ -48,7 +48,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de eliminar los profesores seleccionados?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("¿Estás seguro de eliminar los usuarios seleccionados?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
