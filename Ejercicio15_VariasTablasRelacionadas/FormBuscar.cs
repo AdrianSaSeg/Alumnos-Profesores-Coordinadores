@@ -28,29 +28,60 @@ namespace Ejercicio15_VariasTablasRelacionadas
             
         }
 
-        private DataGridViewCell ObtenerCeldaConContenido(string searchText, DataGridView dataGridView, int columnIndex)
+        /* private DataGridViewCell ObtenerCeldaConContenido(string searchText, DataGridView dataGridView, int columnIndex)
+         {
+             DataGridViewCell celdaDondeHayTexto = null;
+
+             foreach (DataGridViewRow row in dataGridView.Rows)
+             {
+
+                 if (row.Cells[columnIndex].Value != null && searchText == row.Cells[columnIndex].Value.ToString())
+                 {
+                     // el texto searchText es igual al texto de la celda de la coolumna columnIndex.
+                     celdaDondeHayTexto = row.Cells[columnIndex];
+
+                     //añadir el elemento buscado al nuevo datagrid
+                     dg_buscar.Rows.Add(_DatosTabla.Rows[row.Index].Cells[columnIndex].Value);
+                     break;
+                 }                
+             }
+             return celdaDondeHayTexto;
+         }*/
+
+        private void BuscarTextoSimilarEnCeldaDeDatagrid(TextBox t1, DataGridView dg)
         {
-            DataGridViewCell celdaDondeHayTexto = null;
-
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            try
             {
+                //Obtengo el valor del textbox
+                string texto = t1.Text;
 
-                if (row.Cells[columnIndex].Value != null && searchText == row.Cells[columnIndex].Value.ToString())
+                //Recorro todas las filas del DataGridView
+                for (int i = 0; i < dg.Rows.Count; i++)
                 {
-                    // el texto searchText es igual al texto de la celda de la coolumna columnIndex.
-                    celdaDondeHayTexto = row.Cells[columnIndex];
+                    //Recorro todas las celdas de la primera columna de cada fila
+                    for (int j = 0; j < dg.Rows[i].Cells.Count; j++)
+                    {
+                        //Obtengo el valor de cada celda
+                        string str = Convert.ToString(dg.Rows[i].Cells[0].Value);
 
-                    //añadir el elemento buscado al nuevo datagrid
-                    dg_buscar.Rows.Add(_DatosTabla.Rows[row.Index].Cells[columnIndex].Value);
-                    break;
-                }                
+                        //Y lo comparo
+                        if (str.Contains(texto))
+                        {
+                            dg.Rows[i].Cells[0].Style.BackColor = Color.GreenYellow;
+                        }
+                    }
+                }
             }
-            return celdaDondeHayTexto;
+            catch (Exception e)
+            {
+                MessageBox.Show($"Criterio no encontrado = {e.Message}");
+            }
         }
-     
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            DataGridViewCell cell = ObtenerCeldaConContenido(textBox1.Text, _DatosTabla, 0);
+            /*DataGridViewCell cell = ObtenerCeldaConContenido(textBox1.Text, _DatosTabla, 0);
 
             if (cell != null)
             {
@@ -59,7 +90,14 @@ namespace Ejercicio15_VariasTablasRelacionadas
             else
             {
                 MessageBox.Show("No se encuentra el nombre buscado");
-            }
+            }*/
+
+            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla);
         }
     }
 }

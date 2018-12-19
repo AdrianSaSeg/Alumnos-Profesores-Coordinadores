@@ -27,6 +27,15 @@ namespace Ejercicio15_VariasTablasRelacionadas
             _Texto = texto;
         }
 
+        private DataTable GetGridTable()
+        {
+            DataTable l_dtGridTable = new DataTable();          
+            l_dtGridTable.Columns.Add("Nombre", typeof(string));
+
+            return l_dtGridTable;
+        }
+    
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -46,5 +55,9 @@ namespace Ejercicio15_VariasTablasRelacionadas
             this.Close();
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }   
     }
 }

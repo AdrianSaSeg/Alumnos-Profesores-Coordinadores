@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop;
+using System.Data.OleDb;
 
 namespace Ejercicio15_VariasTablasRelacionadas
 {
@@ -21,6 +22,30 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             InitializeComponent();
             
+        }
+
+        private void AbrirExcel (DataGridView dataGrid)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel WorkBook 97-2003|*.xls|Excel WorkBook|*.xlsx", ValidateNames = true })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    String name = "Hoja1";
+                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
+                                    ofd.FileName +
+                                   ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+
+                    OleDbConnection con = new OleDbConnection(constr);
+                    OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
+                    con.Open();
+
+                    OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
+                    DataTable data = new DataTable();
+                    sda.Fill(data);
+                    dg_alumnos.DataSource = data;
+                }
+            }
+
         }
 
         private void GuardarExcel (DataGridView dataGrid)
@@ -152,6 +177,17 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             FormBuscar formBuscar = new FormBuscar(dg_alumnos, "Buscar en registro de Alumnos");
             formBuscar.ShowDialog();
+        }
+
+        private void coordinadoresBuscar_Click(object sender, EventArgs e)
+        {
+            FormBuscar formBuscar = new FormBuscar(dg_coordinadores, "Buscar en registro de Coordinadores");
+            formBuscar.ShowDialog();
+        }
+
+        private void alumnosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirExcel(dg_alumnos);
         }
     }
 }
