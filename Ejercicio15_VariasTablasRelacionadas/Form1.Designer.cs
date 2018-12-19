@@ -71,7 +71,7 @@
             this.cursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresBuscar = new System.Windows.Forms.ToolStripMenuItem();
-            this.alumnosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.coordinadoresToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.dg_cursos = new System.Windows.Forms.DataGridView();
@@ -396,7 +396,7 @@
             // 
             this.buscarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.profesoresBuscar,
-            this.alumnosToolStripMenuItem2,
+            this.alumnosBuscar,
             this.coordinadoresToolStripMenuItem2,
             this.cursosToolStripMenuItem2});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
@@ -410,11 +410,12 @@
             this.profesoresBuscar.Text = "Profesores";
             this.profesoresBuscar.Click += new System.EventHandler(this.profesoresBuscar_Click);
             // 
-            // alumnosToolStripMenuItem2
+            // alumnosBuscar
             // 
-            this.alumnosToolStripMenuItem2.Name = "alumnosToolStripMenuItem2";
-            this.alumnosToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.alumnosToolStripMenuItem2.Text = "Alumnos";
+            this.alumnosBuscar.Name = "alumnosBuscar";
+            this.alumnosBuscar.Size = new System.Drawing.Size(180, 22);
+            this.alumnosBuscar.Text = "Alumnos";
+            this.alumnosBuscar.Click += new System.EventHandler(this.alumnosBuscar_Click);
             // 
             // coordinadoresToolStripMenuItem2
             // 
@@ -545,7 +546,7 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresBuscar;
-        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem alumnosBuscar;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem2;
     }
