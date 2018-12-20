@@ -52,10 +52,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profesoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.alumnosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.coordinadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresAbrirExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosAbrirExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresAbrirExcel = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosAbrirExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresGuardarExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosGuardarExcel = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,26 +103,31 @@
             // 
             // Nombre_Profesor
             // 
+            this.Nombre_Profesor.DataPropertyName = "Nombre";
             this.Nombre_Profesor.HeaderText = "Nombre";
             this.Nombre_Profesor.Name = "Nombre_Profesor";
             // 
             // Apellido_Profesor
             // 
+            this.Apellido_Profesor.DataPropertyName = "Apellido";
             this.Apellido_Profesor.HeaderText = "Apellido";
             this.Apellido_Profesor.Name = "Apellido_Profesor";
             // 
             // Teléfono_Profesor
             // 
+            this.Teléfono_Profesor.DataPropertyName = "Telefono";
             this.Teléfono_Profesor.HeaderText = "Teléfono";
             this.Teléfono_Profesor.Name = "Teléfono_Profesor";
             // 
             // Email_Profesor
             // 
+            this.Email_Profesor.DataPropertyName = "Email";
             this.Email_Profesor.HeaderText = "Email";
             this.Email_Profesor.Name = "Email_Profesor";
             // 
             // Curso_Profesor
             // 
+            this.Curso_Profesor.DataPropertyName = "Curso";
             this.Curso_Profesor.HeaderText = "Curso";
             this.Curso_Profesor.Name = "Curso_Profesor";
             // 
@@ -143,26 +148,31 @@
             // 
             // Nombre_Alumno
             // 
+            this.Nombre_Alumno.DataPropertyName = "Nombre";
             this.Nombre_Alumno.HeaderText = "Nombre";
             this.Nombre_Alumno.Name = "Nombre_Alumno";
             // 
             // Apellido_Alumno
             // 
+            this.Apellido_Alumno.DataPropertyName = "Apellido";
             this.Apellido_Alumno.HeaderText = "Apellido";
             this.Apellido_Alumno.Name = "Apellido_Alumno";
             // 
             // Teléfono_Alumno
             // 
+            this.Teléfono_Alumno.DataPropertyName = "Telefono";
             this.Teléfono_Alumno.HeaderText = "Teléfono";
             this.Teléfono_Alumno.Name = "Teléfono_Alumno";
             // 
             // Email_Alumno
             // 
+            this.Email_Alumno.DataPropertyName = "Email";
             this.Email_Alumno.HeaderText = "Email";
             this.Email_Alumno.Name = "Email_Alumno";
             // 
             // Curso_Alumno
             // 
+            this.Curso_Alumno.DataPropertyName = "Curso";
             this.Curso_Alumno.HeaderText = "Curso";
             this.Curso_Alumno.Name = "Curso_Alumno";
             // 
@@ -183,26 +193,31 @@
             // 
             // Nombre_Coord
             // 
+            this.Nombre_Coord.DataPropertyName = "Nombre";
             this.Nombre_Coord.HeaderText = "Nombre";
             this.Nombre_Coord.Name = "Nombre_Coord";
             // 
             // Apellido_Coord
             // 
+            this.Apellido_Coord.DataPropertyName = "Apellido";
             this.Apellido_Coord.HeaderText = "Apellido";
             this.Apellido_Coord.Name = "Apellido_Coord";
             // 
             // Teléfono_Coord
             // 
+            this.Teléfono_Coord.DataPropertyName = "Telefono";
             this.Teléfono_Coord.HeaderText = "Teléfono";
             this.Teléfono_Coord.Name = "Teléfono_Coord";
             // 
             // Email_Coord
             // 
+            this.Email_Coord.DataPropertyName = "Email";
             this.Email_Coord.HeaderText = "Email";
             this.Email_Coord.Name = "Email_Coord";
             // 
             // Curso_Coord
             // 
+            this.Curso_Coord.DataPropertyName = "Curso";
             this.Curso_Coord.HeaderText = "Curso";
             this.Curso_Coord.Name = "Curso_Coord";
             // 
@@ -263,38 +278,40 @@
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.profesoresToolStripMenuItem1,
-            this.alumnosToolStripMenuItem1,
-            this.coordinadoresToolStripMenuItem1,
-            this.cursosToolStripMenuItem});
+            this.profesoresAbrirExcel,
+            this.alumnosAbrirExcel,
+            this.coordinadoresAbrirExcel,
+            this.cursosAbrirExcel});
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             // 
-            // profesoresToolStripMenuItem1
+            // profesoresAbrirExcel
             // 
-            this.profesoresToolStripMenuItem1.Name = "profesoresToolStripMenuItem1";
-            this.profesoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.profesoresToolStripMenuItem1.Text = "Profesores";
+            this.profesoresAbrirExcel.Name = "profesoresAbrirExcel";
+            this.profesoresAbrirExcel.Size = new System.Drawing.Size(180, 22);
+            this.profesoresAbrirExcel.Text = "Profesores";
+            this.profesoresAbrirExcel.Click += new System.EventHandler(this.profesoresAbrirExcel_Click);
             // 
-            // alumnosToolStripMenuItem1
+            // alumnosAbrirExcel
             // 
-            this.alumnosToolStripMenuItem1.Name = "alumnosToolStripMenuItem1";
-            this.alumnosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.alumnosToolStripMenuItem1.Text = "Alumnos";
-            this.alumnosToolStripMenuItem1.Click += new System.EventHandler(this.alumnosToolStripMenuItem1_Click);
+            this.alumnosAbrirExcel.Name = "alumnosAbrirExcel";
+            this.alumnosAbrirExcel.Size = new System.Drawing.Size(180, 22);
+            this.alumnosAbrirExcel.Text = "Alumnos";
+            this.alumnosAbrirExcel.Click += new System.EventHandler(this.alumnosAbrirExcel_Click);
             // 
-            // coordinadoresToolStripMenuItem1
+            // coordinadoresAbrirExcel
             // 
-            this.coordinadoresToolStripMenuItem1.Name = "coordinadoresToolStripMenuItem1";
-            this.coordinadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.coordinadoresToolStripMenuItem1.Text = "Coordinadores";
+            this.coordinadoresAbrirExcel.Name = "coordinadoresAbrirExcel";
+            this.coordinadoresAbrirExcel.Size = new System.Drawing.Size(180, 22);
+            this.coordinadoresAbrirExcel.Text = "Coordinadores";
+            this.coordinadoresAbrirExcel.Click += new System.EventHandler(this.coordinadoresAbrirExcel_Click);
             // 
-            // cursosToolStripMenuItem
+            // cursosAbrirExcel
             // 
-            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cursosToolStripMenuItem.Text = "Cursos";
+            this.cursosAbrirExcel.Name = "cursosAbrirExcel";
+            this.cursosAbrirExcel.Size = new System.Drawing.Size(180, 22);
+            this.cursosAbrirExcel.Text = "Cursos";
             // 
             // guardarToolStripMenuItem
             // 
@@ -445,16 +462,19 @@
             // 
             // Nombre_Curso
             // 
+            this.Nombre_Curso.DataPropertyName = "Nombre";
             this.Nombre_Curso.HeaderText = "Nombre";
             this.Nombre_Curso.Name = "Nombre_Curso";
             // 
             // Fecha_Curso
             // 
+            this.Fecha_Curso.DataPropertyName = "Fecha";
             this.Fecha_Curso.HeaderText = "Fecha";
             this.Fecha_Curso.Name = "Fecha_Curso";
             // 
             // Categoria_Curso
             // 
+            this.Categoria_Curso.DataPropertyName = "Categoria";
             this.Categoria_Curso.HeaderText = "Categoría";
             this.Categoria_Curso.Name = "Categoria_Curso";
             // 
@@ -509,6 +529,29 @@
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dg_cursos;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresAbrirExcel;
+        private System.Windows.Forms.ToolStripMenuItem alumnosAbrirExcel;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresAbrirExcel;
+        private System.Windows.Forms.ToolStripMenuItem cursosAbrirExcel;
+        private System.Windows.Forms.ToolStripMenuItem profesoresGuardarExcel;
+        private System.Windows.Forms.ToolStripMenuItem alumnosGuardarExcel;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresGuardarExcel;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exportarABDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresBuscar;
+        private System.Windows.Forms.ToolStripMenuItem alumnosBuscar;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresBuscar;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Profesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido_Profesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono_Profesor;
@@ -524,32 +567,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Teléfono_Coord;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email_Coord;
         private System.Windows.Forms.DataGridViewTextBoxColumn Curso_Coord;
-        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dg_cursos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria_Curso;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem cursoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesoresGuardarExcel;
-        private System.Windows.Forms.ToolStripMenuItem alumnosGuardarExcel;
-        private System.Windows.Forms.ToolStripMenuItem coordinadoresGuardarExcel;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exportarABDToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem profesoresBuscar;
-        private System.Windows.Forms.ToolStripMenuItem alumnosBuscar;
-        private System.Windows.Forms.ToolStripMenuItem coordinadoresBuscar;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem2;
     }
 }
 

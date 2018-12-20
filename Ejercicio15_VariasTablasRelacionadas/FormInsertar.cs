@@ -13,6 +13,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
     public partial class FormInsertar : Form
     {
         public DataGridView _DatosEntidad { get; set; }
+        public DataGridView _DatosCursos { get; set; }
         public string _Texto { get; set; }
 
         public FormInsertar()
@@ -20,19 +21,25 @@ namespace Ejercicio15_VariasTablasRelacionadas
             InitializeComponent();
         }
 
-        public FormInsertar(DataGridView datosEntidad, string texto)
+        public FormInsertar(DataGridView datosEntidad, DataGridView dg_cursos, string texto)
         {
             InitializeComponent();
             _DatosEntidad = datosEntidad;
             _Texto = texto;
+            _DatosCursos = dg_cursos;
         }
 
-        private DataTable GetGridTable()
+        private void LlenaComboBox(DataGridView dgOrigen, ComboBox comboBox, int columna)
         {
-            DataTable l_dtGridTable = new DataTable();          
-            l_dtGridTable.Columns.Add("Nombre", typeof(string));
-
-            return l_dtGridTable;
+            if (dgOrigen.Rows.Count > 0)
+            {
+                //algoritmo para rellenar el combox
+                foreach (DataGridViewRow x in dgOrigen.Rows)
+                {
+                    comboBox.Items.Add(Convert.ToString(x.Cells[0].Value));
+                }
+            }
+            
         }
     
 
@@ -55,9 +62,9 @@ namespace Ejercicio15_VariasTablasRelacionadas
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void FormInsertar_Load(object sender, EventArgs e)
         {
-
-        }   
+            LlenaComboBox(_DatosCursos, comboBox1, 0);
+        }
     }
 }

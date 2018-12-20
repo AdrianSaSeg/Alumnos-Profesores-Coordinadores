@@ -48,7 +48,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
              return celdaDondeHayTexto;
          }*/
 
-        private void BuscarTextoSimilarEnCeldaDeDatagrid(TextBox t1, DataGridView dg)
+        private void BuscarTextoSimilarEnCeldaDeDatagrid(TextBox t1, DataGridView dg, DataGridView result)
         {
             try
             {
@@ -68,6 +68,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                         if (str.Contains(texto))
                         {
                             dg.Rows[i].Cells[0].Style.BackColor = Color.GreenYellow;
+                            result.Rows[i].Cells[0].Value = dg.Rows[i].Cells[0].Value;
                         }
                     }
                 }
@@ -92,12 +93,12 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 MessageBox.Show("No se encuentra el nombre buscado");
             }*/
 
-            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla);
+            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla, dg_buscar);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        /*private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla);
-        }
+            BuscarTextoSimilarEnCeldaDeDatagrid(textBox1, _DatosTabla, dg_buscar);
+        }*/
     }
 }

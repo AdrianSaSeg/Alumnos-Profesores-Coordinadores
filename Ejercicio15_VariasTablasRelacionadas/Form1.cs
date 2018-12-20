@@ -24,29 +24,90 @@ namespace Ejercicio15_VariasTablasRelacionadas
             
         }
 
-        private void AbrirExcel (DataGridView dataGrid)
+        private void AbrirExcel(DataGridView dataGrid)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Excel WorkBook 97-2003|*.xls|Excel WorkBook|*.xlsx", ValidateNames = true })
+            string file = "";   //variable for the Excel File Location
+            DataTable dt = new DataTable();   //container for our excel data
+            DataRow row;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            DialogResult result = openFileDialog.ShowDialog();  // Show the dialog.
+            if (result == DialogResult.OK)   // Check if Result == "OK".
             {
-                if (ofd.ShowDialog() == DialogResult.OK)
+                file = openFileDialog.FileName; //get the filename with the location of the file
+                try
+
                 {
-                    String name = "Hoja1";
-                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                                    ofd.FileName +
-                                   ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+                    //Create Object for Microsoft.Office.Interop.Excel that will be use to read excel file
 
-                    OleDbConnection con = new OleDbConnection(constr);
-                    OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
-                    con.Open();
+                    Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
 
-                    OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
-                    DataTable data = new DataTable();
-                    sda.Fill(data);
-                    dg_alumnos.DataSource = data;
+                    Microsoft.Office.Interop.Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(file);
+
+                    Microsoft.Office.Interop.Excel._Worksheet excelWorksheet = excelWorkbook.Sheets[1];
+
+                    Microsoft.Office.Interop.Excel.Range excelRange = excelWorksheet.UsedRange;
+
+
+                    int rowCount = excelRange.Rows.Count;  //get row count of excel data
+
+                    int colCount = excelRange.Columns.Count; // get column count of excel data
+
+                    //Get the first Column of excel file which is the Column Name                  
+
+                    for (int i = 1; i <= rowCount; i++)
+                    {
+                        for (int j = 1; j <= colCount; j++)
+                        {
+                            dt.Columns.Add(excelRange.Cells[i, j].Value2.ToString());
+                        }
+                        break;
+                    }
+                    //Get Row Data of Excel              
+                    int rowCounter;  //This variable is used for row index number
+                    for (int i = 2; i <= rowCount; i++) //Loop for available row of excel data
+                    {
+                        row = dt.NewRow();  //assign new row to DataTable
+                        rowCounter = 0;
+                        for (int j = 1; j <= colCount; j++) //Loop for available column of excel data
+                        {
+                            //check if cell is empty
+                            if (excelRange.Cells[i, j] != null && excelRange.Cells[i, j].Value2 != null)
+                            {
+                                row[rowCounter] = excelRange.Cells[i, j].Value2.ToString();
+                            }
+                            else
+                            {
+                                row[i] = "";
+                            }
+
+                            rowCounter++;
+                        }
+                        dt.Rows.Add(row); //add row to DataTable
+                    }
+
+                    dataGrid.DataSource = dt; //assign DataTable as Datasource for DataGridview
+
+                   /* //Close and Clean excel process
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    Marshal.ReleaseComObject(excelRange);
+                    Marshal.ReleaseComObject(excelWorksheet);
+                    excelWorkbook.Close();
+                    Marshal.ReleaseComObject(excelWorkbook);
+
+                    //quit 
+                    excelApp.Quit();
+                    Marshal.ReleaseComObject(excelApp);*/
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
 
         }
+
+
 
         private void GuardarExcel (DataGridView dataGrid)
         {
@@ -92,19 +153,19 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, "Nuevo Profesor");
+            FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, dg_cursos,"Nuevo Profesor");
             formInsertarProfesor.ShowDialog();
         }
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInsertar formInsertarAlumno = new FormInsertar(dg_alumnos, "Nuevo Alumno");
+            FormInsertar formInsertarAlumno = new FormInsertar(dg_alumnos, dg_cursos, "Nuevo Alumno");
             formInsertarAlumno.ShowDialog();
         }
 
         private void coordinadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInsertar formInsertarCoordinador = new FormInsertar(dg_coordinadores, "Nuevo Coordinador");
+            FormInsertar formInsertarCoordinador = new FormInsertar(dg_coordinadores, dg_cursos, "Nuevo Coordinador");
             formInsertarCoordinador.ShowDialog();
         }
 
@@ -184,10 +245,25 @@ namespace Ejercicio15_VariasTablasRelacionadas
             FormBuscar formBuscar = new FormBuscar(dg_coordinadores, "Buscar en registro de Coordinadores");
             formBuscar.ShowDialog();
         }
-
-        private void alumnosToolStripMenuItem1_Click(object sender, EventArgs e)
+            
+        private void profesoresAbrirExcel_Click(object sender, EventArgs e)
+        {
+            AbrirExcel(dg_profesores);
+        }
+      
+        private void alumnosAbrirExcel_Click(object sender, EventArgs e)
         {
             AbrirExcel(dg_alumnos);
+        }
+
+        private void coordinadoresAbrirExcel_Click(object sender, EventArgs e)
+        {
+            AbrirExcel(dg_coordinadores);
+        }
+
+        private void cursosAbrirExcel_Click(object sender, EventArgs e)
+        {
+            AbrirExcel(dg_cursos);
         }
     }
 }
