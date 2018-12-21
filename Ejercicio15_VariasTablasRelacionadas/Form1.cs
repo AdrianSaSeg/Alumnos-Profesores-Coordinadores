@@ -88,18 +88,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                     }
 
                     dataGrid.DataSource = dt; //assign DataTable as Datasource for DataGridview
-
-                    /* //Close and Clean excel process
-                     GC.Collect();
-                     GC.WaitForPendingFinalizers();
-                     Marshal.ReleaseComObject(excelRange);
-                     Marshal.ReleaseComObject(excelWorksheet);
-                     excelWorkbook.Close();
-                     Marshal.ReleaseComObject(excelWorkbook);
-
-                     //quit 
-                     excelApp.Quit();
-                     Marshal.ReleaseComObject(excelApp);*/
+              
                 }
                 catch (Exception ex)
                 {
