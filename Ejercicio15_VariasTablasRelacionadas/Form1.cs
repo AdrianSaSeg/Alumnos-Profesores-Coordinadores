@@ -14,14 +14,16 @@ using System.Data.OleDb;
 
 namespace Ejercicio15_VariasTablasRelacionadas
 {
+    
     public partial class Form1 : Form
     {
         string fichero;
+        public Bitmap _Bitmap { get; set; }
 
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void AbrirExcel(DataGridView dataGrid)
@@ -87,17 +89,17 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
                     dataGrid.DataSource = dt; //assign DataTable as Datasource for DataGridview
 
-                   /* //Close and Clean excel process
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                    Marshal.ReleaseComObject(excelRange);
-                    Marshal.ReleaseComObject(excelWorksheet);
-                    excelWorkbook.Close();
-                    Marshal.ReleaseComObject(excelWorkbook);
+                    /* //Close and Clean excel process
+                     GC.Collect();
+                     GC.WaitForPendingFinalizers();
+                     Marshal.ReleaseComObject(excelRange);
+                     Marshal.ReleaseComObject(excelWorksheet);
+                     excelWorkbook.Close();
+                     Marshal.ReleaseComObject(excelWorkbook);
 
-                    //quit 
-                    excelApp.Quit();
-                    Marshal.ReleaseComObject(excelApp);*/
+                     //quit 
+                     excelApp.Quit();
+                     Marshal.ReleaseComObject(excelApp);*/
                 }
                 catch (Exception ex)
                 {
@@ -107,9 +109,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         }
 
-
-
-        private void GuardarExcel (DataGridView dataGrid)
+        private void GuardarExcel(DataGridView dataGrid)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel (*xls)|*.xls";
@@ -122,38 +122,56 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 aplicacion = new Microsoft.Office.Interop.Excel.Application();
                 libros_trabajo = aplicacion.Workbooks.Add();
                 hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+              
+                // creamos un bucle para rellenar las cabeceras del excel con las cabeceras del datagrid
+                for (int f = 0; f < dataGrid.Columns.Count; f++)
+                {
+                    hoja_trabajo.Cells[1, f + 1] = dataGrid.Columns[f].DataPropertyName;   //   
+                }
 
-                //Recorremos el DataGridView rellenando la hoja de trabajo
-                for (int i = 0; i < dataGrid.Rows.Count - 1; i++)
+                int g = 0;  // variable para controlar los valores del datagrid que tienen que ir uno por detrás de las filas
+                            // del excel
+                for (int i = 1; i < dataGrid.Rows.Count; i++)
                 {
                     for (int j = 0; j < dataGrid.Columns.Count; j++)
                     {
-                        hoja_trabajo.Cells[i + 1, j + 1] = dataGrid.Rows[i].Cells[j].Value.ToString();
+                        hoja_trabajo.Cells[i + 1, j + 1] = dataGrid.Rows[g].Cells[j].Value.ToString();
+
                     }
+                    g++;  // incrementamos el valor del datagrid
                 }
                 libros_trabajo.SaveAs(saveFileDialog.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
                 libros_trabajo.Close(true);
                 aplicacion.Quit();
             }
         }
+        
+        private void ImprimirDataGrid(DataGridView dg)
+         {
+            Bitmap bitmap; 
+            //Resize DataGridView to full height.
+             int height = dg.Height;
+             dg.Height = dg.RowCount * dg.RowTemplate.Height;
 
-        private void Pd_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            int pos;
-            int líneas;
-            StringFormat sf = StringFormat.GenericTypographic;
+             //Create a Bitmap and draw the DataGridView on it.
+             bitmap = new Bitmap(dg.Width, dg.Height);
+             dg.DrawToBitmap(bitmap, new Rectangle(0, 0, dg.Width, dg.Height));
 
-            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            e.Graphics.DrawString(fichero, Font, Brushes.Black, e.MarginBounds, sf);
-            e.Graphics.MeasureString(fichero, Font, new SizeF(e.MarginBounds.Width, e.MarginBounds.Height), sf, out pos, out líneas);
+            //mapeo el bitmap creado con una propiedad global
+            _Bitmap = bitmap;
+            
+            //Resize DataGridView back to original height.
+             dg.Height = height;
 
-            fichero = fichero.Substring(pos);
-            e.HasMorePages = fichero.Trim().Length > 0;
-        }
-
+             //Show the Print Preview Dialog.
+             printPreviewDialog1.Document = printDocument1;
+             printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+             printPreviewDialog1.ShowDialog();
+         }
+      
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, dg_cursos,"Nuevo Profesor");
+            FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, dg_cursos, "Nuevo Profesor");
             formInsertarProfesor.ShowDialog();
         }
 
@@ -173,8 +191,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             FormInsertarCurso formInsertarCurso = new FormInsertarCurso(dg_cursos, "Nuevo Curso");
             formInsertarCurso.ShowDialog();
-        }       
-                             
+        }
+
         private void dg_profesores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
@@ -208,21 +226,12 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             GuardarExcel(dg_alumnos);
         }
-      
+
         private void coordinadoresGuardarExcel_Click(object sender, EventArgs e)
         {
             GuardarExcel(dg_coordinadores);
         }
-
-        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fichero = File.ReadAllText(@"C:\Users\Adrian Sanchez\Desktop\profesores.xls", Encoding.Default);
-
-            PrintDocument pd = new PrintDocument();
-            pd.PrintPage += Pd_PrintPage;
-            pd.Print();
-        }
-              
+                          
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -264,6 +273,32 @@ namespace Ejercicio15_VariasTablasRelacionadas
         private void cursosAbrirExcel_Click(object sender, EventArgs e)
         {
             AbrirExcel(dg_cursos);
+        }
+
+        private void alumnosImprimirDataGrid_Click(object sender, EventArgs e)
+        {
+            ImprimirDataGrid(dg_alumnos);
+        }
+
+        private void coordinadoresImprimirDataGrid_Click(object sender, EventArgs e)
+        {
+            ImprimirDataGrid(dg_coordinadores);
+        }
+
+        private void cursosImprimirDataGrid_Click(object sender, EventArgs e)
+        {
+            ImprimirDataGrid(dg_cursos);
+        }
+
+        private void profesoresImprimirDataGrid_Click(object sender, EventArgs e)
+        {
+            ImprimirDataGrid(dg_profesores);
+        }
+
+        private void printDocument1_PrintPage_1(object sender, PrintPageEventArgs e)
+        {
+            //Print the contents.
+            e.Graphics.DrawImage(_Bitmap, 0, 0);
         }
     }
 }
