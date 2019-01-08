@@ -28,7 +28,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
             
         }
 
-        /* private DataGridViewCell ObtenerCeldaConContenido(string searchText, DataGridView dataGridView, int columnIndex)
+        /* private DataGridViewCell ObtenerTextoSimilar(string searchText, DataGridView dataGridView, int columnIndex)
          {
              DataGridViewCell celdaDondeHayTexto = null;
 

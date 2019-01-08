@@ -63,7 +63,11 @@
             this.coordinadoresGuardarExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarABDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarDesdeBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,10 +87,9 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.profesoresImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
-            this.alumnosImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
-            this.coordinadoresImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosImprimirDataGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarProfesoresDesdeBDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).BeginInit();
@@ -277,7 +280,7 @@
             this.abrirToolStripMenuItem,
             this.guardarToolStripMenuItem,
             this.imprimirToolStripMenuItem,
-            this.exportarABDToolStripMenuItem,
+            this.importarDesdeBDToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -370,11 +373,43 @@
             this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
-            // exportarABDToolStripMenuItem
+            // profesoresImprimirDataGrid
             // 
-            this.exportarABDToolStripMenuItem.Name = "exportarABDToolStripMenuItem";
-            this.exportarABDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportarABDToolStripMenuItem.Text = "Exportar a BD";
+            this.profesoresImprimirDataGrid.Name = "profesoresImprimirDataGrid";
+            this.profesoresImprimirDataGrid.Size = new System.Drawing.Size(152, 22);
+            this.profesoresImprimirDataGrid.Text = "Profesores";
+            this.profesoresImprimirDataGrid.Click += new System.EventHandler(this.profesoresImprimirDataGrid_Click);
+            // 
+            // alumnosImprimirDataGrid
+            // 
+            this.alumnosImprimirDataGrid.Name = "alumnosImprimirDataGrid";
+            this.alumnosImprimirDataGrid.Size = new System.Drawing.Size(152, 22);
+            this.alumnosImprimirDataGrid.Text = "Alumnos";
+            this.alumnosImprimirDataGrid.Click += new System.EventHandler(this.alumnosImprimirDataGrid_Click);
+            // 
+            // coordinadoresImprimirDataGrid
+            // 
+            this.coordinadoresImprimirDataGrid.Name = "coordinadoresImprimirDataGrid";
+            this.coordinadoresImprimirDataGrid.Size = new System.Drawing.Size(152, 22);
+            this.coordinadoresImprimirDataGrid.Text = "Coordinadores";
+            this.coordinadoresImprimirDataGrid.Click += new System.EventHandler(this.coordinadoresImprimirDataGrid_Click);
+            // 
+            // cursosImprimirDataGrid
+            // 
+            this.cursosImprimirDataGrid.Name = "cursosImprimirDataGrid";
+            this.cursosImprimirDataGrid.Size = new System.Drawing.Size(152, 22);
+            this.cursosImprimirDataGrid.Text = "Cursos";
+            this.cursosImprimirDataGrid.Click += new System.EventHandler(this.cursosImprimirDataGrid_Click);
+            // 
+            // importarDesdeBDToolStripMenuItem
+            // 
+            this.importarDesdeBDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importarProfesoresDesdeBDToolStripMenuItem1,
+            this.alumnosToolStripMenuItem1,
+            this.coordinadoresToolStripMenuItem1});
+            this.importarDesdeBDToolStripMenuItem.Name = "importarDesdeBDToolStripMenuItem";
+            this.importarDesdeBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importarDesdeBDToolStripMenuItem.Text = "Importar desde BD";
             // 
             // salirToolStripMenuItem
             // 
@@ -518,33 +553,24 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // profesoresImprimirDataGrid
+            // importarProfesoresDesdeBDToolStripMenuItem1
             // 
-            this.profesoresImprimirDataGrid.Name = "profesoresImprimirDataGrid";
-            this.profesoresImprimirDataGrid.Size = new System.Drawing.Size(180, 22);
-            this.profesoresImprimirDataGrid.Text = "Profesores";
-            this.profesoresImprimirDataGrid.Click += new System.EventHandler(this.profesoresImprimirDataGrid_Click);
+            this.importarProfesoresDesdeBDToolStripMenuItem1.Name = "importarProfesoresDesdeBDToolStripMenuItem1";
+            this.importarProfesoresDesdeBDToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.importarProfesoresDesdeBDToolStripMenuItem1.Text = "Profesores";
+            this.importarProfesoresDesdeBDToolStripMenuItem1.Click += new System.EventHandler(this.importarProfesoresDesdeBDToolStripMenuItem1_Click);
             // 
-            // alumnosImprimirDataGrid
+            // alumnosToolStripMenuItem1
             // 
-            this.alumnosImprimirDataGrid.Name = "alumnosImprimirDataGrid";
-            this.alumnosImprimirDataGrid.Size = new System.Drawing.Size(180, 22);
-            this.alumnosImprimirDataGrid.Text = "Alumnos";
-            this.alumnosImprimirDataGrid.Click += new System.EventHandler(this.alumnosImprimirDataGrid_Click);
+            this.alumnosToolStripMenuItem1.Name = "alumnosToolStripMenuItem1";
+            this.alumnosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.alumnosToolStripMenuItem1.Text = "Alumnos";
             // 
-            // coordinadoresImprimirDataGrid
+            // coordinadoresToolStripMenuItem1
             // 
-            this.coordinadoresImprimirDataGrid.Name = "coordinadoresImprimirDataGrid";
-            this.coordinadoresImprimirDataGrid.Size = new System.Drawing.Size(180, 22);
-            this.coordinadoresImprimirDataGrid.Text = "Coordinadores";
-            this.coordinadoresImprimirDataGrid.Click += new System.EventHandler(this.coordinadoresImprimirDataGrid_Click);
-            // 
-            // cursosImprimirDataGrid
-            // 
-            this.cursosImprimirDataGrid.Name = "cursosImprimirDataGrid";
-            this.cursosImprimirDataGrid.Size = new System.Drawing.Size(180, 22);
-            this.cursosImprimirDataGrid.Text = "Cursos";
-            this.cursosImprimirDataGrid.Click += new System.EventHandler(this.cursosImprimirDataGrid_Click);
+            this.coordinadoresToolStripMenuItem1.Name = "coordinadoresToolStripMenuItem1";
+            this.coordinadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.coordinadoresToolStripMenuItem1.Text = "Coordinadores";
             // 
             // Form1
             // 
@@ -603,7 +629,7 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosGuardarExcel;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresGuardarExcel;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exportarABDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarDesdeBDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresBuscar;
@@ -635,6 +661,9 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosImprimirDataGrid;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresImprimirDataGrid;
         private System.Windows.Forms.ToolStripMenuItem cursosImprimirDataGrid;
+        private System.Windows.Forms.ToolStripMenuItem importarProfesoresDesdeBDToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem1;
     }
 }
 

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop;
 using System.Data.OleDb;
+using MySql.Data.MySqlClient;
 
 namespace Ejercicio15_VariasTablasRelacionadas
 {
@@ -157,7 +158,60 @@ namespace Ejercicio15_VariasTablasRelacionadas
              printPreviewDialog1.PrintPreviewControl.Zoom = 1;
              printPreviewDialog1.ShowDialog();
          }
-      
+
+        //CONECTAR A BD
+        private void recibeDatosBDaGrid(DataGridView dg_recibe, string tabla, string host, string database, string usuario, string pass)
+        {
+            // limpilo el Grid donde recibiré los datos
+            dg_recibe.Rows.Clear();
+
+            //defino el STRING con los datos/credenciales de acceso a la base de datos
+
+            string conString = $"Server={host};Database={database};Uid={usuario};Pwd={pass};";
+
+            // Abro una conexión al servidor MYSQL
+            MySqlConnection conexion = new MySqlConnection(conString);
+
+            // Defino la consulta a realizar ( CRUD ) Crear.. Leer... Actualizar... Borrar...
+            string sql = $"SELECT * FROM {tabla}";
+
+            // le indico cómo voy a enviar la instrucción ... mediante un String / Procedimiento_Almacenado de la Base datos
+            MySqlCommand cmd = new MySqlCommand(sql, conexion);
+
+            //OPEN CON,RETRIEVE,FILL DGVIEW
+            try
+            {
+                // abrir la conexión 
+                conexion.Open();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+
+                // creo un datatable para recibir los datos de la Base de datos
+                DataTable dt = new DataTable();
+
+                // lleno los datos en el DataTable
+                adapter.Fill(dt);
+
+                // Lleno el DataGrid con los datos del DataTable.. fila a fila
+                foreach (DataRow row in dt.Rows)
+                {
+                    dg_recibe.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[0].ToString());
+                }
+                // cierro la conexión
+                conexion.Close();
+
+                // limpio los datos del datatable
+                dt.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                conexion.Close();
+            }
+
+        }
+
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormInsertar formInsertarProfesor = new FormInsertar(dg_profesores, dg_cursos, "Nuevo Profesor");
@@ -288,6 +342,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             //Print the contents.
             e.Graphics.DrawImage(_Bitmap, 0, 0);
+        }
+
+        private void importarProfesoresDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            recibeDatosBDaGrid(dg_profesores, "Aula_profesores", "gestion-academia.mysql.database.azure.com", "aula", "AdrianSS@gestion-academia", "ABC.1234");
         }
     }
 }
