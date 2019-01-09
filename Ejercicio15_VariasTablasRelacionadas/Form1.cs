@@ -20,7 +20,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
     {
         string fichero;
         public Bitmap _Bitmap { get; set; }
-
+        BD bd = new BD();
         public Form1()
         {
             InitializeComponent();
@@ -159,7 +159,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
              printPreviewDialog1.ShowDialog();
          }
 
-        //CONECTAR A BD
+        //IMPORTAR DATOS DESDE BD
         private void recibeDatosBDaGrid(DataGridView dg_recibe, string tabla, string host, string database, string usuario, string pass)
         {
             // limpilo el Grid donde recibiré los datos
@@ -195,7 +195,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 // Lleno el DataGrid con los datos del DataTable.. fila a fila
                 foreach (DataRow row in dt.Rows)
                 {
-                    dg_recibe.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[0].ToString());
+                    dg_recibe.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString());
                 }
                 // cierro la conexión
                 conexion.Close();
@@ -347,6 +347,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
         private void importarProfesoresDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             recibeDatosBDaGrid(dg_profesores, "Aula_profesores", "gestion-academia.mysql.database.azure.com", "aula", "AdrianSS@gestion-academia", "ABC.1234");
+        }
+
+        private void alumnosInsertarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            bd.InsertarEnBD(dg_alumnos);
         }
     }
 }

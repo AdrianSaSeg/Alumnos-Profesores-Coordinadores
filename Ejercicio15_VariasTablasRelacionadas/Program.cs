@@ -14,6 +14,9 @@ namespace Ejercicio15_VariasTablasRelacionadas
         [STAThread]
         static void Main()
         {
+            //creo/obtengo la referencia de la conexion
+            BD connection = BD.GetInstance();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
