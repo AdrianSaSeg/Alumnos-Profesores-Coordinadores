@@ -100,6 +100,11 @@
             this.alumnosActualizarBDToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.coordinadoresToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrarEnBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosBorrarEnBDToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).BeginInit();
@@ -293,7 +298,8 @@
             this.importarDesdeBDToolStripMenuItem,
             this.insertarEnBDToolStripMenuItem,
             this.actualizarBDToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.borrarEnBDToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.inicioToolStripMenuItem.Text = "Inicio";
@@ -656,6 +662,42 @@
             this.cursosToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.cursosToolStripMenuItem3.Text = "Cursos";
             // 
+            // borrarEnBDToolStripMenuItem
+            // 
+            this.borrarEnBDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profesoresToolStripMenuItem3,
+            this.alumnosBorrarEnBDToolStripMenuItem2,
+            this.coordinadoresToolStripMenuItem4,
+            this.cursosToolStripMenuItem4});
+            this.borrarEnBDToolStripMenuItem.Name = "borrarEnBDToolStripMenuItem";
+            this.borrarEnBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrarEnBDToolStripMenuItem.Text = "Borrar en BD";
+            // 
+            // profesoresToolStripMenuItem3
+            // 
+            this.profesoresToolStripMenuItem3.Name = "profesoresToolStripMenuItem3";
+            this.profesoresToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.profesoresToolStripMenuItem3.Text = "Profesores";
+            // 
+            // alumnosBorrarEnBDToolStripMenuItem2
+            // 
+            this.alumnosBorrarEnBDToolStripMenuItem2.Name = "alumnosBorrarEnBDToolStripMenuItem2";
+            this.alumnosBorrarEnBDToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.alumnosBorrarEnBDToolStripMenuItem2.Text = "Alumnos";
+            this.alumnosBorrarEnBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosBorrarEnBDToolStripMenuItem2_Click);
+            // 
+            // coordinadoresToolStripMenuItem4
+            // 
+            this.coordinadoresToolStripMenuItem4.Name = "coordinadoresToolStripMenuItem4";
+            this.coordinadoresToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.coordinadoresToolStripMenuItem4.Text = "Coordinadores";
+            // 
+            // cursosToolStripMenuItem4
+            // 
+            this.cursosToolStripMenuItem4.Name = "cursosToolStripMenuItem4";
+            this.cursosToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.cursosToolStripMenuItem4.Text = "Cursos";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,6 +800,11 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosActualizarBDToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem borrarEnBDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem alumnosBorrarEnBDToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem4;
     }
 }
 

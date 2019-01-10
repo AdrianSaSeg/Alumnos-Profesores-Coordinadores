@@ -159,7 +159,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 telefono = Convert.ToString(dg_origen.Rows[i].Cells[2].Value);
                 email = Convert.ToString(dg_origen.Rows[i].Cells[3].Value);
                 
-                String query = $"INSERT INTO Aula_alumnos (nombre, apellido, telefono, email) VALUES ('{nombre}', '{apellido}', '{telefono}', '{email}')";
+                string query = $"INSERT INTO Aula_alumnos (nombre, apellido, telefono, email) VALUES ('{nombre}', '{apellido}', '{telefono}', '{email}')";
 
                 if (AbrirConexion() == true)
                 {
@@ -177,7 +177,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
         //Actualizar en la BD
         public void ActualizarBD(DataGridView dg_origen)
         {
-            String query = $"UPDATE Aula_alumnos SET nombre='Lucho' WHERE nombre='Luis'";
+            string query = $"UPDATE Aula_alumnos SET nombre='Lucho' WHERE nombre='Luis'";
             // Open connection            if (this.AbrirConexion() == true)
             {
                 //create mysql command
@@ -189,6 +189,19 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 //Execute query
                 cmd.ExecuteNonQuery();
                 //close connection
+                this.CerrarConexion();
+            }
+        }
+
+        //Borrar en BD
+        public void BorrarEnBD(DataGridView dg_origen)
+        {
+            string query = "DELETE FROM Aula_alumnos WHERE nombre='JOSE'";
+
+            if (this.AbrirConexion() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
                 this.CerrarConexion();
             }
         }
