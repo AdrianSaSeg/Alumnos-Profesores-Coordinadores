@@ -353,5 +353,10 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             bd.InsertarEnBD(dg_alumnos);
         }
+
+        private void alumnosActualizarBDToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            bd.ActualizarBD(dg_alumnos);
+        }
     }
 }

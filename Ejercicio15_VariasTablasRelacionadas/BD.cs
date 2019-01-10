@@ -153,14 +153,12 @@ namespace Ejercicio15_VariasTablasRelacionadas
         public void InsertarEnBD(DataGridView dg_origen)
         {            
             for (int i = 0; i < dg_origen.RowCount; i++)
-            {
-                for (int j = 0; j < dg_origen.Rows[i].Cells.Count - 1; j++)
-                {
-                    nombre = Convert.ToString(dg_origen.Rows[i].Cells[0].Value);
-                    apellido = Convert.ToString(dg_origen.Rows[i].Cells[1].Value);
-                    telefono = Convert.ToString(dg_origen.Rows[i].Cells[2].Value);
-                    email = Convert.ToString(dg_origen.Rows[i].Cells[3].Value);
-                }
+            {     
+                nombre = Convert.ToString(dg_origen.Rows[i].Cells[0].Value);
+                apellido = Convert.ToString(dg_origen.Rows[i].Cells[1].Value);
+                telefono = Convert.ToString(dg_origen.Rows[i].Cells[2].Value);
+                email = Convert.ToString(dg_origen.Rows[i].Cells[3].Value);
+                
                 String query = $"INSERT INTO Aula_alumnos (nombre, apellido, telefono, email) VALUES ('{nombre}', '{apellido}', '{telefono}', '{email}')";
 
                 if (AbrirConexion() == true)
@@ -176,5 +174,23 @@ namespace Ejercicio15_VariasTablasRelacionadas
             }
         }
 
+        //Actualizar en la BD
+        public void ActualizarBD(DataGridView dg_origen)
+        {
+            String query = $"UPDATE Aula_alumnos SET nombre='Lucho' WHERE nombre='Luis'";
+            // Open connection            if (this.AbrirConexion() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = _connection;
+                //Execute query
+                cmd.ExecuteNonQuery();
+                //close connection
+                this.CerrarConexion();
+            }
+        }
     }
 }

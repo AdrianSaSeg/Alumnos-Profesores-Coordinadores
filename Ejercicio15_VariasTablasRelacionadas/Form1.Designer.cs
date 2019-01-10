@@ -71,6 +71,11 @@
             this.importarProfesoresDesdeBDToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.coordinadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertarEnBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosInsertarEnBDToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,11 +95,11 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.insertarEnBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profesoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.alumnosInsertarEnBDToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.coordinadoresToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnosActualizarBDToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.coordinadoresToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dg_profesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_coordinadores)).BeginInit();
@@ -287,6 +292,7 @@
             this.imprimirToolStripMenuItem,
             this.importarDesdeBDToolStripMenuItem,
             this.insertarEnBDToolStripMenuItem,
+            this.actualizarBDToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -436,6 +442,42 @@
             this.coordinadoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.coordinadoresToolStripMenuItem1.Text = "Coordinadores";
             // 
+            // insertarEnBDToolStripMenuItem
+            // 
+            this.insertarEnBDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profesoresToolStripMenuItem1,
+            this.alumnosInsertarEnBDToolStripMenuItem2,
+            this.coordinadoresToolStripMenuItem2,
+            this.cursosToolStripMenuItem});
+            this.insertarEnBDToolStripMenuItem.Name = "insertarEnBDToolStripMenuItem";
+            this.insertarEnBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.insertarEnBDToolStripMenuItem.Text = "Insertar en BD";
+            // 
+            // profesoresToolStripMenuItem1
+            // 
+            this.profesoresToolStripMenuItem1.Name = "profesoresToolStripMenuItem1";
+            this.profesoresToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.profesoresToolStripMenuItem1.Text = "Profesores";
+            // 
+            // alumnosInsertarEnBDToolStripMenuItem2
+            // 
+            this.alumnosInsertarEnBDToolStripMenuItem2.Name = "alumnosInsertarEnBDToolStripMenuItem2";
+            this.alumnosInsertarEnBDToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.alumnosInsertarEnBDToolStripMenuItem2.Text = "Alumnos";
+            this.alumnosInsertarEnBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosInsertarEnBDToolStripMenuItem2_Click);
+            // 
+            // coordinadoresToolStripMenuItem2
+            // 
+            this.coordinadoresToolStripMenuItem2.Name = "coordinadoresToolStripMenuItem2";
+            this.coordinadoresToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.coordinadoresToolStripMenuItem2.Text = "Coordinadores";
+            // 
+            // cursosToolStripMenuItem
+            // 
+            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cursosToolStripMenuItem.Text = "Cursos";
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -578,41 +620,41 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // insertarEnBDToolStripMenuItem
+            // actualizarBDToolStripMenuItem
             // 
-            this.insertarEnBDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.profesoresToolStripMenuItem1,
-            this.alumnosInsertarEnBDToolStripMenuItem2,
-            this.coordinadoresToolStripMenuItem2,
-            this.cursosToolStripMenuItem});
-            this.insertarEnBDToolStripMenuItem.Name = "insertarEnBDToolStripMenuItem";
-            this.insertarEnBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.insertarEnBDToolStripMenuItem.Text = "Insertar en BD";
+            this.actualizarBDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profesoresToolStripMenuItem2,
+            this.alumnosActualizarBDToolStripMenuItem2,
+            this.coordinadoresToolStripMenuItem3,
+            this.cursosToolStripMenuItem3});
+            this.actualizarBDToolStripMenuItem.Name = "actualizarBDToolStripMenuItem";
+            this.actualizarBDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.actualizarBDToolStripMenuItem.Text = "Actualizar BD";
             // 
-            // profesoresToolStripMenuItem1
+            // profesoresToolStripMenuItem2
             // 
-            this.profesoresToolStripMenuItem1.Name = "profesoresToolStripMenuItem1";
-            this.profesoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.profesoresToolStripMenuItem1.Text = "Profesores";
+            this.profesoresToolStripMenuItem2.Name = "profesoresToolStripMenuItem2";
+            this.profesoresToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.profesoresToolStripMenuItem2.Text = "Profesores";
             // 
-            // alumnosInsertarEnBDToolStripMenuItem2
+            // alumnosActualizarBDToolStripMenuItem2
             // 
-            this.alumnosInsertarEnBDToolStripMenuItem2.Name = "alumnosInsertarEnBDToolStripMenuItem2";
-            this.alumnosInsertarEnBDToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.alumnosInsertarEnBDToolStripMenuItem2.Text = "Alumnos";
-            this.alumnosInsertarEnBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosInsertarEnBDToolStripMenuItem2_Click);
+            this.alumnosActualizarBDToolStripMenuItem2.Name = "alumnosActualizarBDToolStripMenuItem2";
+            this.alumnosActualizarBDToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.alumnosActualizarBDToolStripMenuItem2.Text = "Alumnos";
+            this.alumnosActualizarBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosActualizarBDToolStripMenuItem2_Click);
             // 
-            // coordinadoresToolStripMenuItem2
+            // coordinadoresToolStripMenuItem3
             // 
-            this.coordinadoresToolStripMenuItem2.Name = "coordinadoresToolStripMenuItem2";
-            this.coordinadoresToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.coordinadoresToolStripMenuItem2.Text = "Coordinadores";
+            this.coordinadoresToolStripMenuItem3.Name = "coordinadoresToolStripMenuItem3";
+            this.coordinadoresToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.coordinadoresToolStripMenuItem3.Text = "Coordinadores";
             // 
-            // cursosToolStripMenuItem
+            // cursosToolStripMenuItem3
             // 
-            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cursosToolStripMenuItem.Text = "Cursos";
+            this.cursosToolStripMenuItem3.Name = "cursosToolStripMenuItem3";
+            this.cursosToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.cursosToolStripMenuItem3.Text = "Cursos";
             // 
             // Form1
             // 
@@ -711,6 +753,11 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosInsertarEnBDToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualizarBDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem alumnosActualizarBDToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem coordinadoresToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem3;
     }
 }
 
