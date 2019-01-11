@@ -104,21 +104,20 @@ namespace Ejercicio15_VariasTablasRelacionadas
             }
         }
 
-        //Creamos el metodo para recibir los datos de los datagrid del form1
-        private void recibeDataGrid(DataGridView dg_recibe, string tabla)
+        //Recibir desde BD
+        public void recibeBD(DataGridView dg_recibe, string tabla)
         {
             // limpio el Grid donde recibiré los datos
             dg_recibe.Rows.Clear();
-
-            // Defino la consulta a realizar ( CRUD ) Crear.. Leer... Actualizar... Borrar...
-            string sql = $"SELECT * FROM {tabla}";
-
-            // le indico cómo voy a enviar la instrucción ... mediante un String / Procedimiento_Almacenado de la Base datos
-            MySqlCommand cmd = new MySqlCommand(sql, _connection);
-
+            
             //OPEN CON,RETRIEVE,FILL DGVIEW
             try
             {
+                // Defino la consulta a realizar(CRUD ) Crear..Leer...Actualizar...Borrar...
+                string sql = $"SELECT * FROM {tabla}";
+
+                // le indico cómo voy a enviar la instrucción ... mediante un String / Procedimiento_Almacenado de la Base datos
+                MySqlCommand cmd = new MySqlCommand(sql, _connection);
                 // abrir la conexión 
                 _connection.Open();
 
@@ -174,11 +173,13 @@ namespace Ejercicio15_VariasTablasRelacionadas
             }
         }
 
+        
+
         //Actualizar en la BD
         public void ActualizarBD(DataGridView dg_origen)
         {
             string query = $"UPDATE Aula_alumnos SET nombre='Lucho' WHERE nombre='Luis'";
-            // Open connection            if (this.AbrirConexion() == true)
+            // Open connection            if (AbrirConexion() == true)
             {
                 //create mysql command
                 MySqlCommand cmd = new MySqlCommand();
@@ -189,7 +190,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 //Execute query
                 cmd.ExecuteNonQuery();
                 //close connection
-                this.CerrarConexion();
+                CerrarConexion();
             }
         }
 
@@ -198,11 +199,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
         {
             string query = "DELETE FROM Aula_alumnos WHERE nombre='JOSE'";
 
-            if (this.AbrirConexion() == true)
+            if (AbrirConexion() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                this.CerrarConexion();
+                CerrarConexion();
             }
         }
     }

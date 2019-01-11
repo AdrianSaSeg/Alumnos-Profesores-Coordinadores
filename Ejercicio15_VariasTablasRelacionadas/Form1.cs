@@ -159,58 +159,9 @@ namespace Ejercicio15_VariasTablasRelacionadas
              printPreviewDialog1.ShowDialog();
          }
 
-        //IMPORTAR DATOS DESDE BD
-        private void recibeDatosBDaGrid(DataGridView dg_recibe, string tabla, string host, string database, string usuario, string pass)
-        {
-            // limpilo el Grid donde recibiré los datos
-            dg_recibe.Rows.Clear();
+        
 
-            //defino el STRING con los datos/credenciales de acceso a la base de datos
-
-            string conString = $"Server={host};Database={database};Uid={usuario};Pwd={pass};";
-
-            // Abro una conexión al servidor MYSQL
-            MySqlConnection conexion = new MySqlConnection(conString);
-
-            // Defino la consulta a realizar ( CRUD ) Crear.. Leer... Actualizar... Borrar...
-            string sql = $"SELECT * FROM {tabla}";
-
-            // le indico cómo voy a enviar la instrucción ... mediante un String / Procedimiento_Almacenado de la Base datos
-            MySqlCommand cmd = new MySqlCommand(sql, conexion);
-
-            //OPEN CON,RETRIEVE,FILL DGVIEW
-            try
-            {
-                // abrir la conexión 
-                conexion.Open();
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-
-                // creo un datatable para recibir los datos de la Base de datos
-                DataTable dt = new DataTable();
-
-                // lleno los datos en el DataTable
-                adapter.Fill(dt);
-
-                // Lleno el DataGrid con los datos del DataTable.. fila a fila
-                foreach (DataRow row in dt.Rows)
-                {
-                    dg_recibe.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString());
-                }
-                // cierro la conexión
-                conexion.Close();
-
-                // limpio los datos del datatable
-                dt.Rows.Clear();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-                conexion.Close();
-            }
-
-        }
+        //////////////EVENTOS/////////////////
 
         private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -343,12 +294,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
             //Print the contents.
             e.Graphics.DrawImage(_Bitmap, 0, 0);
         }
-
-        private void importarProfesoresDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            recibeDatosBDaGrid(dg_profesores, "Aula_profesores", "gestion-academia.mysql.database.azure.com", "aula", "AdrianSS@gestion-academia", "ABC.1234");
-        }
-
+   
         private void alumnosInsertarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             bd.InsertarEnBD(dg_alumnos);
@@ -362,6 +308,11 @@ namespace Ejercicio15_VariasTablasRelacionadas
         private void alumnosBorrarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             bd.BorrarEnBD(dg_alumnos);
+        }
+
+        private void alumnosImportarDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bd.recibeBD(dg_alumnos, "Aula_alumnos");
         }
     }
 }
