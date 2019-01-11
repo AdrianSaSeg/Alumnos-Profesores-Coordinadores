@@ -15,7 +15,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
         public DataGridView _DatosEntidad { get; set; }
         public DataGridView _DatosCursos { get; set; }
         public string _Texto { get; set; }
-
+        BD bd = new BD();
+        
         public FormInsertar()
         {
             InitializeComponent();
@@ -48,6 +49,16 @@ namespace Ejercicio15_VariasTablasRelacionadas
             try
             {
                 _DatosEntidad.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.Text);
+
+                DialogResult dialogResult = MessageBox.Show("¿Quieres subir éste usuario a la base de datos?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //Añadimos también a la BD
+                    BD conexion = BD.GetInstance();
+
+                    bd.InsertarEnBD("Aula_alumnos", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+                }
+                
             }
             catch (FormatException ex)
             {

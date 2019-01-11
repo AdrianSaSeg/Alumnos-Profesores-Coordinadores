@@ -295,10 +295,10 @@ namespace Ejercicio15_VariasTablasRelacionadas
             e.Graphics.DrawImage(_Bitmap, 0, 0);
         }
    
-        private void alumnosInsertarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
+        /*private void alumnosInsertarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             bd.InsertarEnBD(dg_alumnos);
-        }
+        }*/
 
         private void alumnosActualizarBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -313,6 +313,22 @@ namespace Ejercicio15_VariasTablasRelacionadas
         private void alumnosImportarDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             bd.recibeBD(dg_alumnos, "Aula_alumnos");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            BD conexion = BD.GetInstance();
+
+            if (conexion._connection != null)
+            {
+                label5.BackColor = Color.Green;
+                label5.Text = "Conexión OK";
+            }
+            else
+            {
+                label5.BackColor = Color.Red;
+                label5.Text = "No se ha establecido conexión con la Base de Datos";
+            }
         }
     }
 }

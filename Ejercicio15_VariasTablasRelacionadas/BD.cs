@@ -37,12 +37,6 @@ namespace Ejercicio15_VariasTablasRelacionadas
             return instance;
         }
 
-        //Inicializar constructor
-        public BD()
-        {
-            Inicializar();
-        }
-
         //Inicializar variables
         public void Inicializar()
         {
@@ -60,6 +54,12 @@ namespace Ejercicio15_VariasTablasRelacionadas
             _connection = connection;
         }
 
+        //Inicializar constructor
+        public BD()
+        {
+            Inicializar();
+        }
+       
         //Abrir conexion con la BD
         private bool AbrirConexion()
         {
@@ -149,7 +149,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
         }
 
         //Insertar en la BD
-        public void InsertarEnBD(DataGridView dg_origen)
+        /*public void InsertarEnBD(DataGridView dg_origen)
         {            
             for (int i = 0; i < dg_origen.RowCount; i++)
             {     
@@ -171,9 +171,24 @@ namespace Ejercicio15_VariasTablasRelacionadas
                     CerrarConexion();
                 }
             }
-        }
+        }*/
 
-        
+        //Insertar en BD (alternativo)
+        public void InsertarEnBD(string tabla, string nombre, string apellido, string telefono, string email)
+        {
+            string query = $"INSERT INTO {tabla} (nombre, apellido, telefono, email) VALUES ('{nombre}', '{apellido}', '{telefono}', '{email}')";
+
+            if (AbrirConexion() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, _connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+                //close connection
+                CerrarConexion();
+            }
+        }
 
         //Actualizar en la BD
         public void ActualizarBD(DataGridView dg_origen)
@@ -191,7 +206,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 cmd.ExecuteNonQuery();
                 //close connection
                 CerrarConexion();
-            }
+            }
         }
 
         //Borrar en BD
@@ -204,7 +219,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 CerrarConexion();
-            }
+            }
         }
     }
 }
