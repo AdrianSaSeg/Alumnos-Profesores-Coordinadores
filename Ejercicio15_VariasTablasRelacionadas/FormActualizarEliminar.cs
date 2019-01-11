@@ -14,7 +14,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
     {
         public DataGridView _DatosEntidad { get; set; }
         public string _Texto { get; set; }
-        
+        BD bd = new BD();
 
         public FormActualizarEliminar()
         {
@@ -40,6 +40,14 @@ namespace Ejercicio15_VariasTablasRelacionadas
             _DatosEntidad.Rows[i].Cells[3].Value = textBox4.Text;
             _DatosEntidad.Rows[i].Cells[4].Value = comboBox1.SelectedItem;
 
+            DialogResult dialogResult = MessageBox.Show("¿Quieres actualizar éste usuario tembién en la base de datos?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Añadimos también a la BD
+                BD conexion = BD.GetInstance();
+
+                bd.ActualizarBD("Aula_alumnos", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -507,7 +507,7 @@
             this.alumnosActualizarBDToolStripMenuItem2.Name = "alumnosActualizarBDToolStripMenuItem2";
             this.alumnosActualizarBDToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.alumnosActualizarBDToolStripMenuItem2.Text = "Alumnos";
-            this.alumnosActualizarBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosActualizarBDToolStripMenuItem2_Click);
+            //this.alumnosActualizarBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosActualizarBDToolStripMenuItem2_Click);
             // 
             // coordinadoresToolStripMenuItem3
             // 

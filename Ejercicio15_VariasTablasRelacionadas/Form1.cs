@@ -300,10 +300,10 @@ namespace Ejercicio15_VariasTablasRelacionadas
             bd.InsertarEnBD(dg_alumnos);
         }*/
 
-        private void alumnosActualizarBDToolStripMenuItem2_Click(object sender, EventArgs e)
+        /*private void alumnosActualizarBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             bd.ActualizarBD(dg_alumnos);
-        }
+        }*/
 
         private void alumnosBorrarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {

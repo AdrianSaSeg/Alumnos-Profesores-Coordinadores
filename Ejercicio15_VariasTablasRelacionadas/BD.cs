@@ -191,10 +191,32 @@ namespace Ejercicio15_VariasTablasRelacionadas
         }
 
         //Actualizar en la BD
-        public void ActualizarBD(DataGridView dg_origen)
+        /*public void ActualizarBD(DataGridView dg_origen)
         {
             string query = $"UPDATE Aula_alumnos SET nombre='Lucho' WHERE nombre='Luis'";
             // Open connection            if (AbrirConexion() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = _connection;
+                //Execute query
+                cmd.ExecuteNonQuery();
+                //close connection
+                CerrarConexion();
+            }
+        }*/
+
+        //Actualizar en la BD (Alternativo)
+        public void ActualizarBD(string tabla, string nombre, string apellido, string telefono, string email)
+        {
+            string query = $"UPDATE {tabla} SET nombre='{nombre}', apellido='{apellido}', telefono='{telefono}', email='{email}' " +
+                $"WHERE nombre='{nombre}', apellido='{apellido}', telefono='{telefono}', email='{email}";
+
+            // Open connection
+            if (AbrirConexion() == true)
             {
                 //create mysql command
                 MySqlCommand cmd = new MySqlCommand();
