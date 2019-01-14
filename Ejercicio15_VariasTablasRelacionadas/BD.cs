@@ -210,10 +210,10 @@ namespace Ejercicio15_VariasTablasRelacionadas
         }*/
 
         //Actualizar en la BD (Alternativo)
-        public void ActualizarBD(string tabla, string nombre, string apellido, string telefono, string email)
+        public void ActualizarBD(string tabla, string nombre_anterior, string nombre, string apellido, string telefono, string email)
         {
             string query = $"UPDATE {tabla} SET nombre='{nombre}', apellido='{apellido}', telefono='{telefono}', email='{email}' " +
-                $"WHERE nombre='{nombre}', apellido='{apellido}', telefono='{telefono}', email='{email}";
+                $"WHERE nombre='{nombre_anterior}'";
 
             // Open connection
             if (AbrirConexion() == true)

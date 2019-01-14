@@ -186,6 +186,7 @@
             this.Controls.Add(this.button1);
             this.Name = "FormActualizarEliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FormActualizarEliminar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

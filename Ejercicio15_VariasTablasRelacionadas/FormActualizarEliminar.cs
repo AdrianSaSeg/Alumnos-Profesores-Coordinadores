@@ -14,6 +14,9 @@ namespace Ejercicio15_VariasTablasRelacionadas
     {
         public DataGridView _DatosEntidad { get; set; }
         public string _Texto { get; set; }
+        
+        //creamos la propiedad donde guardar el valor anterior para actualizar en la BD
+        public string _NombreAnterior { get; set; }
         BD bd = new BD();
 
         public FormActualizarEliminar()
@@ -28,8 +31,27 @@ namespace Ejercicio15_VariasTablasRelacionadas
             _Texto = texto;
         }
 
+        private void FormActualizarEliminar_Load(object sender, EventArgs e)
+        {
+            this.Text = _Texto;
+            
+            //obtengo el indice de la fila seleccionada
+            int i = _DatosEntidad.SelectedCells[0].RowIndex;
+
+            //cargamos los textbox del formulario con los datos de la fila seleccionada
+            textBox1.Text = _DatosEntidad.Rows[i].Cells[0].Value.ToString();
+            textBox2.Text = _DatosEntidad.Rows[i].Cells[1].Value.ToString();
+            textBox3.Text = _DatosEntidad.Rows[i].Cells[2].Value.ToString();
+            textBox4.Text = _DatosEntidad.Rows[i].Cells[3].Value.ToString();
+            comboBox1.SelectedItem = comboBox1.Items.IndexOf("test1");
+
+            _NombreAnterior = textBox1.Text;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+                        
             //obtengo el indice de la fila seleccionada
             int i = _DatosEntidad.SelectedCells[0].RowIndex;
 
@@ -46,7 +68,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 //Añadimos también a la BD
                 BD conexion = BD.GetInstance();
 
-                bd.ActualizarBD("Aula_alumnos", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+                bd.ActualizarBD("Aula_alumnos", _NombreAnterior, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
             }
         }
 
@@ -67,6 +89,6 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 }
 
             }           
-        }
+        }       
     }
 }
