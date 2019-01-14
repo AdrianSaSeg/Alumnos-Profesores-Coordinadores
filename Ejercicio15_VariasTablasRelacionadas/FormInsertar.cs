@@ -15,7 +15,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
         public DataGridView _DatosEntidad { get; set; }
         public DataGridView _DatosCursos { get; set; }
         public string _Texto { get; set; }
-        BD bd = new BD();
+        
         
         public FormInsertar()
         {
@@ -56,7 +56,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                     //Añadimos también a la BD
                     BD conexion = BD.GetInstance();
 
-                    bd.InsertarEnBD("Aula_alumnos", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+                    conexion.InsertarEnBD("Aula_alumnos", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
                 }
                 
             }

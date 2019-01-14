@@ -20,7 +20,6 @@ namespace Ejercicio15_VariasTablasRelacionadas
     {
         string fichero;
         public Bitmap _Bitmap { get; set; }
-        BD bd = new BD();
         public Form1()
         {
             InitializeComponent();
@@ -189,19 +188,19 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void dg_profesores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor");
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_profesores, "Actualizar/Eliminar Profesor", "Aula_profesores");
             formActualizarEliminar.ShowDialog();
         }
 
         private void dg_alumnos_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_alumnos, "Actualizar/Eliminar Alumno");
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_alumnos, "Actualizar/Eliminar Alumno", "Aula_alumnos");
             formActualizarEliminar.ShowDialog();
         }
 
         private void dg_coordinadores_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador");
+            FormActualizarEliminar formActualizarEliminar = new FormActualizarEliminar(dg_coordinadores, "Actualizar/Eliminar Coordinador", "Aula_coordinadores");
             formActualizarEliminar.ShowDialog();
         }
 
@@ -312,7 +311,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void alumnosImportarDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            bd.recibeBD(dg_alumnos, "Aula_alumnos");
+            BD conexion = BD.GetInstance();
+            conexion.recibeBD(dg_alumnos, "Aula_alumnos");
         }
 
         private void Form1_Load(object sender, EventArgs e)

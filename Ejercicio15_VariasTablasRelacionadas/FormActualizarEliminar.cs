@@ -14,21 +14,22 @@ namespace Ejercicio15_VariasTablasRelacionadas
     {
         public DataGridView _DatosEntidad { get; set; }
         public string _Texto { get; set; }
-        
+        public string _Tabla { get; set; }
+
         //creamos la propiedad donde guardar el valor anterior para actualizar en la BD
         public string _NombreAnterior { get; set; }
-        BD bd = new BD();
-
+        
         public FormActualizarEliminar()
         {
             InitializeComponent();
         }
 
-        public FormActualizarEliminar(DataGridView datosEntidad, string texto)
+        public FormActualizarEliminar(DataGridView datosEntidad, string texto, string tabla)
         {
             InitializeComponent();
             _DatosEntidad = datosEntidad;
             _Texto = texto;
+            _Tabla = tabla;
         }
 
         private void FormActualizarEliminar_Load(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 //Añadimos también a la BD
                 BD conexion = BD.GetInstance();
 
-                bd.ActualizarBD("Aula_alumnos", _NombreAnterior, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+                conexion.ActualizarBD(_Tabla, _NombreAnterior, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
             }
         }
 
@@ -88,7 +89,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
                     _DatosEntidad.Rows.Remove(i);
                 }
 
-                bd.BorrarEnBD("Aula_alumnos", _NombreAnterior);
+                BD conexion = BD.GetInstance();
+                conexion.BorrarEnBD("Aula_alumnos", _NombreAnterior);
             }           
         }       
     }
