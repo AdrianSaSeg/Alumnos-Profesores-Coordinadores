@@ -88,6 +88,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                     _DatosEntidad.Rows.Remove(i);
                 }
 
+                bd.BorrarEnBD("Aula_alumnos", _NombreAnterior);
             }           
         }       
     }

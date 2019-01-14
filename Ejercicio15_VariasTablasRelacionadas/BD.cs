@@ -231,7 +231,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
             }
         }
 
-        //Borrar en BD
+        /*//Borrar en BD
         public void BorrarEnBD(DataGridView dg_origen)
         {
             string query = "DELETE FROM Aula_alumnos WHERE nombre='JOSE'";
@@ -242,6 +242,20 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 cmd.ExecuteNonQuery();
                 CerrarConexion();
             }
+        }*/
+
+        //Borrar en BD (alternativo)
+        public void BorrarEnBD(string tabla, string nombre)
+        {
+            string query = $"DELETE FROM {tabla} WHERE nombre='{nombre}'";
+
+            if (AbrirConexion() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CerrarConexion();
+            }
         }
     }
+        
 }

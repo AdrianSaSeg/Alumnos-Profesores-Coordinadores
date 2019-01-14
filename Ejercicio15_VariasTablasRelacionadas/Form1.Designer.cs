@@ -550,7 +550,7 @@
             this.alumnosBorrarEnBDToolStripMenuItem2.Name = "alumnosBorrarEnBDToolStripMenuItem2";
             this.alumnosBorrarEnBDToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.alumnosBorrarEnBDToolStripMenuItem2.Text = "Alumnos";
-            this.alumnosBorrarEnBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosBorrarEnBDToolStripMenuItem2_Click);
+           // this.alumnosBorrarEnBDToolStripMenuItem2.Click += new System.EventHandler(this.alumnosBorrarEnBDToolStripMenuItem2_Click);
             // 
             // coordinadoresToolStripMenuItem4
             // 

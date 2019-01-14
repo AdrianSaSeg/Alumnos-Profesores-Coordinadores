@@ -305,10 +305,10 @@ namespace Ejercicio15_VariasTablasRelacionadas
             bd.ActualizarBD(dg_alumnos);
         }*/
 
-        private void alumnosBorrarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
+        /*private void alumnosBorrarEnBDToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             bd.BorrarEnBD(dg_alumnos);
-        }
+        }*/
 
         private void alumnosImportarDesdeBDToolStripMenuItem1_Click(object sender, EventArgs e)
         {
