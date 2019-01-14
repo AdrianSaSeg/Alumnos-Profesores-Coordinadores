@@ -75,6 +75,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
 
         private void FormInsertar_Load(object sender, EventArgs e)
         {
+            this.Text = _Texto;
             LlenaComboBox(_DatosCursos, comboBox1, 0);
         }
     }

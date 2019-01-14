@@ -70,7 +70,8 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 BD conexion = BD.GetInstance();
 
                 conexion.ActualizarBD(_Tabla, _NombreAnterior, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
-            }
+               
+            }        
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -90,7 +91,7 @@ namespace Ejercicio15_VariasTablasRelacionadas
                 }
 
                 BD conexion = BD.GetInstance();
-                conexion.BorrarEnBD("Aula_alumnos", _NombreAnterior);
+                conexion.BorrarEnBD(_Tabla, _NombreAnterior);
             }           
         }       
     }
